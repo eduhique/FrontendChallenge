@@ -1,0 +1,65 @@
+<div class="container2">
+  <div class="container">
+    <h1 class="tittle">Create a new Tournament</h1>
+    <form class="form" [formGroup]="formOfTeams" (ngSubmit)="onSubmit()">
+      <div class="form-container">
+        <label for="inputTeams" class="input-teams">
+          <h4>Number of Teams</h4>
+          <select
+            id="inputTeams"
+            formControlName="numberOfTeams"
+            (change)="onChangeTeams($event)"
+          >
+            <option *ngFor="let i of [2, 4, 8, 16]">{{ i }}</option>
+          </select>
+          <div
+            *ngIf="
+              form.numberOfTeams.errors &&
+              form.numberOfTeams.invalid &&
+              (form.numberOfTeams.dirty || form.numberOfTeams.touched)
+            "
+          >
+            <p class="invalid" *ngIf="form.numberOfTeams.errors.required">
+              Number of teams is required
+            </p>
+          </div>
+          <p>Choose a pair of teams between 2 and 16.</p>
+        </label>
+        <label for="randomClashes" class="config-input">
+          <input
+            type="checkbox"
+            formControlName="randomClashes"
+            id="randomClashes"
+          />
+          <p>generate random clashes</p>
+        </label>
+        <div class="teams">
+          <ng-container *ngFor="let team of teamsFormGroups; let i = index">
+            <div [formGroup]="team">
+              <div class="form-control">
+                <label>
+                  <p>Team {{ StringRef.fromCharCode(65 + i) }}</p>
+                  <input type="text" formControlName="name" />
+                  <div
+                    *ngIf="
+                      team.controls.name.errors &&
+                      team.controls.name.invalid &&
+                      (team.controls.name.dirty || team.controls.name.touched)
+                    "
+                  >
+                    <div *ngIf="team.controls.name.errors.required">
+                      <p class="invalid">Name is required</p>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <button class="button" [disabled]="formOfTeams.invalid">
+        create tournament
+      </button>
+    </form>
+  </div>
+</div>

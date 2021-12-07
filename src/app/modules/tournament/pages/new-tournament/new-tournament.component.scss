@@ -1,0 +1,84 @@
+.container2 {
+  display: flex;
+  align-items: center;
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 89vh;
+      .form-container {
+        .input-teams {
+          display: flex;
+          flex-direction: column;
+          h4,
+          p {
+            margin: 0.5rem 0;
+          }
+          select {
+            width: 3rem;
+          }
+        }
+
+        .config-input {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 0.3rem;
+          p {
+            margin: 0.5rem 0;
+          }
+        }
+        .teams {
+          display: flex;
+          flex-direction: column;
+          align-content: space-around;
+          flex-wrap: wrap;
+          width: 75vw;
+          height: 65vh;
+          padding: 0.75rem;
+
+          .form-control {
+            height: 4.5rem;
+            p {
+              margin: 0.3rem 0;
+            }
+            input {
+              width: 150px;
+            }
+          }
+        }
+      }
+    }
+
+    .button {
+      border: none;
+      background-color: #3396f3;
+      color: white;
+      padding: 10px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 20rem;
+
+      &:disabled {
+        background-color: #c9c9c9;
+      }
+      &:hover {
+        &:not([disabled]) {
+          background-color: #1974c9;
+        }
+      }
+    }
+  }
+  .invalid {
+    margin: 0.1rem 0;
+    color: rgb(199, 26, 26);
+    font-size: 0.75rem;
+  }
+}

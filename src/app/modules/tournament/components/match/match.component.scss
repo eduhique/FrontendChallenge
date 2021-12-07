@@ -1,0 +1,44 @@
+.match {
+  width: 7rem;
+  border: 2px solid #333;
+  margin: 0.3rem 0;
+  hr {
+    margin: 0;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    p {
+      margin: 0.3rem 0;
+    }
+    .play {
+      margin: 0.3rem 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+
+      &:disabled {
+        svg {
+          fill: #c9c9c9;
+        }
+      }
+      &:hover {
+        &:not([disabled]) {
+          svg {
+            fill: #32cb00;
+          }
+        }
+      }
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  .win {
+    background-color: #b0ff57;
+  }
+}

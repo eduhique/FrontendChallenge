@@ -1,0 +1,17 @@
+<div class="container">
+  <ng-container *ngFor="let round of tournament; let i = index">
+    <div class="round">
+      <h5>{{ i < tournament.length - 1 ? 'Round ' + (i + 1) : 'Final' }}</h5>
+      <div class="round-container">
+        <ng-container *ngFor="let match of round; let i2 = index">
+          <app-match
+            [match]="match.teams"
+            [winner]="match.winner"
+            (setWinner)="setWinner($event, i, i2)"
+          >
+          </app-match>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>
